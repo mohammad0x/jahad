@@ -1,0 +1,95 @@
+<div class="topnav" align="right">
+        <a class="active" href="#home">پنل کاربری</a>
+        <a href="#news">ارکان گروه</a>
+        <a href="#contact">فعالیت های گروه</a>
+        <a href="#about">خروج</a>
+        </div>
+        <div class="container">
+        <div align="center">
+            <h2>پنل کاربری</h2>
+        </div>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>ویرایش اطلاعات گروه جهادی</h4></div>
+                <div class="panel-body" style="display:flex" dir="rtl"><a href="{% url 'panel:groupupdate' %}">ویرایش</a>
+
+                    <div style=" display:flex; justify-items: center; align-items: center;margin-right:3rem">
+                        <p style='margin-right:2rem'>
+                            نام گروه جهادی:{{ group_n }}
+                        </p>
+                        <p style='margin-right:2rem'>
+                            ادرس گروه جهادی: {{ adress }}
+                        </p>
+                        <p style='margin-right:2rem'>
+                            شماره ثابت گروه جهادی:{{ num }}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4>ویرایش اطلاعات مدیر گروه جهادی</h4></div>
+                    <div class="panel-body" style="display:flex" dir="rtl">
+                        <a href="{% url 'panel:adminupdate' %}">ویرایش</a>
+                            <div style=" display:flex; justify-items: center; align-items: center;margin-right:3rem">
+                                <p style='margin-right:2rem'>
+                                    کد ملی مسئول گروه:{{ nation }}
+                                </p>
+                                <p style='margin-right:2rem'>
+                                    نام مسئول گروه: {{ adminFirst }}
+                                </p>
+                                <p style='margin-right:2rem'>
+                                    نام خانوادگی مسئول گروه:{{ adminLast }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h4>ارکان گروه</h4></div>
+                        <div class="panel-body"><a href="{% url 'panel:arkanupdate' %}">ویرایش</a></div>
+                    </div>
+                </div>
+
+                <br>
+
+
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h4>فعالیت های گروه</h4></div>
+                        <div class="panel-body"><a href="{% url 'panel:activetyupdate' %}">ویرایش</a></div>
+                    </div>
+                </div>
+
+                <br>
+
+
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h4>گزارش ها </h4></div>
+                        <div class="panel-body" style="display:flex" dir="rtl">
+
+                            <div style=" display:flex; justify-items: center; align-items: center;margin-right:1rem">
+
+
+                                <p><a href="{% url 'panel:contact_to_admin' %}">ارسال گزارش به ادمین</a></p>
+                                <p style='margin-right:2rem'>
+                                    <a href="{% url 'panel:payam' %}">مشاهده گذارش های ارسال شده توسط مدیر</a>
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>

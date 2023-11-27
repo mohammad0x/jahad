@@ -1,0 +1,153 @@
+{% load static %}
+<center>
+    {% include 'messages.html' %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {#            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type='text/css' href="{% static 'home/css/css/kamadatepicker.min.css' %}">
+
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            clifford: '#da373d',
+                        }
+                    }
+                }
+            }
+        </script>
+        <style type="text/tailwindcss">
+            @layer utilities {
+                .content-auto {
+                    content-visibility: auto;
+                }
+            }
+
+            .sab {
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            .bgbg {
+                background-color: #dcd7d7
+            }
+        </style>
+
+
+    </head>
+
+    <body class="bgbg">
+    <div class="w-full max-w-3xl  items-center rounded-full justify-center">
+        <br><br>
+        <form method="POST" class="bg-white shadow-md rounded-xl px-2 pt-6 pb-14 mb-4">
+            {% csrf_token %}
+
+
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    نام مسئول گروه جهادی
+                </label>
+                <input name="admin_name" value="{{ name }}" required minlength="2" maxlength="35"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="نام مسئول گروه جهادی">
+            </div>
+            <br>
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    نام خانوادگی مسئول گروه جهادی
+                </label>
+                <input name="admin_lastname" value="{{ last }}" required minlength="2" maxlength="35"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="نام خانوادگی مسئول گروه جهادی">
+            </div>
+            <br>
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    کد ملی مسئول گروه جهادی
+                </label>
+                <input name="nationality_code" value="{{ nation }}" required minlength="10" maxlength="10"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="کد ملی مسئول گروه جهادی">
+            </div>
+            <br>
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    شماره تماس مسئول گروه
+                </label>
+                <input name="phone" value="{{ ph }}" required minlength="11" maxlength="11"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder=" شماره تماس مسئول گروه با صفر وارد شود">
+            </div>
+            <br>
+
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    تاریخ تولد مسئول گروه
+                </label>
+                <input name="date" required
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="date" type="text" placeholder="تاریخ تولد مسئول گروه">
+            </div>
+            <br>
+
+
+            <div class="flex items-center text-center justify-center ">
+                <input value="ارسال"
+                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                       type="submit">
+
+            </div>
+            <br>
+            <div class=" text-blue-500 hover:text-blue-800">
+                <a href="{% url 'panel:panel' %}">بازگشت به پنل</a>
+            </div>
+
+        </form>
+
+
+        <br>
+    </div>
+</center>
+</body>
+</html>
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/kamadatepicker.min.js' %}"></script>
+<script>
+    kamaDatepicker('date', {
+        closeAfterSelect: true,
+        gotoToday: true,
+        buttonsColor: "green",
+        markHolidays: true,
+        highlightSelectedDay: true
+    });
+</script>
+<script>
+    kamaDatepicker('date_created', {
+        closeAfterSelect: true,
+        gotoToday: true,
+        buttonsColor: "green",
+        markHolidays: true,
+        highlightSelectedDay: true
+    });
+</script>

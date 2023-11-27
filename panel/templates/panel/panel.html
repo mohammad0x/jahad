@@ -1,0 +1,160 @@
+<center>
+{% include 'messages.html' %}
+</center>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+        .sab{
+            position:fixed;
+top:0;
+left:0;
+        }
+        .bgbg{
+
+        }
+    </style>
+    {#            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>#}
+    {#            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>#}
+    <title>پنل کاربری</title>
+</head>
+<body class="bgbg">
+<div class="w-screen lg:h-14  h-16   flex border-width: 8px;
+  ">
+    <div class="w-1/6 h-full hover:bg-gray-500 text-sm right-0 duration-300 flex items-center justify-center border bg-cyan-500 md:bg-cyan-500 lg:bg-cyan-500 lg:text-2xl   md:text-sm ">
+        <a href="{% url 'login:logout' %}">خروج از گروه جهادی</a>
+    </div>
+    <div class="w-1/6 h-full text-sm right-0 bg-cyan-500 lg:bg-cyan-500 md:bg-cyan-500 duration-300 flex items-center justify-center md:bg-cyan-500 lg:text-2xl   md:text-sm ">
+    </div>
+
+
+
+
+    <div class="w-1/6 h-full  right-0 duration-300 flex items-center justify-center bg-cyan-500 md:bg-cyan-500 lg:bg-cyan-500 lg:text-2xl md:text-sm "></div>
+
+    <div class="w-1/6 h-full  right-0 duration-300 flex items-center justify-center bg-cyan-500 md:bg-cyan-500 lg:bg-cyan-500 lg:text-2xl md:text-sm "></div>
+
+
+    <div class="w-1/6 h-full text-sm hover:bg-gray-500 right-0 duration-300 flex items-center justify-center border bg-cyan-500 md:bg-cyan-500 lg:bg-cyan-500 lg:text-2xl md:text-sm ">
+        <a href="{% url 'panel:arkanupdate' %}">ارکان گروه</a></div>
+
+
+    <div class="w-1/6 h-full text-sm hover:bg-gray-500 right-0 duration-300 flex items-center bg-cyan-500 justify-center border md:bg-cyan-500 lg:bg-cyan-500 lg:text-2xl md:text-sm ">
+        <a href="{% url 'panel:activetyupdate' %}">فعالیت های گروه</a></div>
+
+    <div class="w-1/6 h-full text-sm hover:bg-gray-500 duration-300 text-sm flex items-center justify-center border bg-cyan-500 md:bg-cyan-500 lg:bg-cyan-500 lg:text-2xl md:text-sm ">
+        <a href="{% url 'panel:panel' %}">پنل کاربری</a></div>
+</div>
+<br>
+<div class="text-center text-1xl text-sm md:text-2xl lg:text-3xl">
+    پنل کاربری
+</div>
+<br>
+<br>
+
+<div class="w-screen h-12 bg-gray-400  text-center items-center justify-center">
+
+    <p> اطلاعات گروه جهادی</p>
+    <br>
+
+
+</div>
+
+<div class="w-screen h-10 bg-gray-300 text-blue-500 text-right items-right justify-right">
+    <a href="{% url 'panel:groupupdatetow' %}">ویرایش&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+
+
+<br>
+<br>
+<br>
+
+<div class="w-screen h-12 bg-gray-400  text-center items-center justify-center text-lg">
+<div class="text-center items-center justify-center ">
+
+    <p> اطلاعات مسئول گروه جهادی</p>
+   </div>
+    <br>
+
+
+
+</div>
+
+<div class="w-screen h-10 bg-gray-300 text-blue-500  text-right items-right justify-right">
+    <a href="{% url 'panel:adminupdate' %}">ویرایش&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+
+
+
+
+<br>
+<br><br>
+
+<div class="w-screen h-12 bg-gray-400  text-center items-center justify-center text-lg">
+
+    <p> ارکان گروه جهادی</p>
+    <br>
+
+
+</div>
+
+<div class="w-screen h-10 bg-gray-300 text-blue-500 text-right items-right justify-right">
+    <a href="{% url 'panel:arkanupdate' %}">ویرایش&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="w-screen h-12 bg-gray-400  text-center items-center justify-center text-lg">
+
+    <p> فعالیت های گروه جهادی</p>
+
+    <br>
+
+</div>
+
+<div class="w-screen h-10 bg-gray-300 text-blue-500 text-right items-right justify-right text-lg">
+    <a href="{% url 'panel:activetyupdate' %}">ویرایش&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<br><br><br>
+<div class="w-screen h-12 bg-gray-400  text-center items-center justify-center text-lg">
+
+    <p  >گزارش ها</p>
+
+    <br>
+
+</div>
+
+<div class="w-screen h-14 md:h-10 lg:h-10 bg-gray-300 text-blue-500 text-right items-right justify-right text-lg">
+    <a href="{% url 'panel:payam' %}"> گزارش های دریافت شده توسط مدیر&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+    <a href="{% url 'panel:contact_to_admin' %}">ارسال گزارش به مدیر &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+
+
+
+</body>
+</html>

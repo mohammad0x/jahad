@@ -1,0 +1,307 @@
+
+{% load static %}
+
+{% include 'messages.html' %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Language" content="fa"/>
+    <style>
+        label, input, placeholder, date, checkbox, select :not([dir=ltr]) {
+            direction: rtl;
+            text-align: center;
+        }
+
+        /* Apply box-sizing to all elements */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Apply some basic styles to form elements */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        form {
+            width: 50%;
+        height: auto; padding: 40px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        select,
+        textarea {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            box-shadow: 0 0 5px #4CAF50;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Apply styles to form labels */
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Apply styles to form error messages */
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Apply styles to form success messages */
+        .success {
+            color: green;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        body {
+            text-align: center;
+            background-color: rgba(63, 165, 196, 0.25);
+        }
+
+        /* Apply some basic styles to button container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Apply styles to submit button */
+        .submit- {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #888888;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit:hover {
+            background-color: #666666;
+        }
+
+        /* Responsive styles for smaller screens */
+        @media (max-width: 768px) {
+            .submit {
+                width: 50%;
+            }
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        input[type="checkbox"] {
+            width: 2%;
+            padding: 1px;
+        margin: 10px; background-color: #f5f5f5;
+            align-text: rtl;
+        }
+
+        .mh {
+            display: flex;
+        width-top:200px; align-text: center;
+            pading-top: 100px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<div align="center">
+    <div align="center">
+        <form method="POST">
+
+            {% csrf_token %}
+            <h1>لطفا اطلاعات گروه جهادی را وارد کنید </h1>
+
+
+
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example11">تاریخ تولد مسئول گروه جهادی</label>
+
+                <input type="text" id="date" name="date" class=" date form-control"
+                       placeholder=" تولد مسئول گروه جهادی"/>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example11"> شماره مسئول گروه جهادی</label>
+
+                <input type="text" id="form2Example11" name="phone" class="form-control"
+                       placeholder="*********09"/>
+            </div>
+            <label class="form-label" name="adress" for="form2Example11">آدرس دفتر گروه</label>
+
+            <select id="city" onchange="ChangeCarList()">
+                <option value="noone">لطفا استان را انتخاب کنید</option>
+                <option value="khrazavi">خراسان رضوی</option>
+                <option value="tehran">استان تهران</option>
+                <option value="khshomali">خراسان شمالی</option>
+            </select>
+            <select id="citymodel">
+
+            </select>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example11">شماره ثابت گروه جهادی</label>
+
+                <input type="text" id="form2Example11" name="number_sa" class="form-control"
+                       placeholder="شماره ثابت گروه جهادی"/>
+            </div>
+
+            <div class="form-outline mb-4" lang="fa" align="ltr">
+                <label class="form-label" for="form2Example11">تاریخ تأسیس گروه جهادی</label>
+                <input type="date" id="form2Example11" name="date_created" class="form-control date"
+                       placeholder="تاریخ تأسیس گروه جهادی"/>
+            </div>
+
+
+            <label class="form-label" for="form2Example11">حوزه فعالیت گروه جهادی</label>
+            <br>
+
+
+            <div class="flex">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<input type="checkbox" id="farhangi"
+                                                                             class="chkbox" value="farhangi"/><label
+                    for="farhangi">&nbsp; &nbsp; &nbsp;فرهنگی &nbsp;</label>
+                <input type="checkbox"  class="chkbox"  id="hjtmayi" name="hjtmayi" value="1"/><label for="hjtmayi">&nbsp; &nbsp;
+                    &nbsp;اجتماعی </label>
+                <input type="checkbox" class="chkbox" id="amizeshi" name="amizeshi" value="1"/><label for="amizeshi">&nbsp;
+                    &nbsp; &nbsp;آموزشی </label>
+                <input type="checkbox" class="chkbox" id="kshavarzi" name="kshavarzi" value="1"/><label for="kshavarzi">&nbsp;
+                    &nbsp; &nbsp;کشاورزی </label>
+                <input type="checkbox" class="chkbox" id="omrani" name="omrani" value="1"/><label for="omrani"/>&nbsp; &nbsp;
+                    &nbsp;عمرانی </label>
+                <input type="checkbox" class="chkbox" id="bhnhajd" name="bhnhajd" value="1"/><label for="bhnhajd"/>&nbsp; &nbsp;
+                    &nbsp;بهداشت و درمانی </label>
+            </div>
+            <div class="flex">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="all" name="all" value="1"/><label for="all">تمام
+                حوزه ها </label>
+
+            </div>
+            <br>
+            <br>
+            <label class="form-label" for="form2Example11">پیامرسان مورد استفاده گروه</label>
+
+            <div class="form-outline mb-4">
+
+                <div class="flex">
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<input
+                        type="checkbox" id="inesta" name="inesta" value="1"/><label for="inesta">&nbsp; &nbsp;
+                    &nbsp; اینستاگرام </label>
+                    <input type="checkbox" id="telegram" name="tel" value="1"/><label for="telegram">&nbsp;
+                    &nbsp; &nbsp;تلگرام </label>
+                    <input type="checkbox" id="srosh" name="srosh" value="1"/><label for="srosh">&nbsp; &nbsp;
+                    &nbsp;سروش </label>
+                    <input type="checkbox" id="bale" name="bale" value="1"/><label for="bale">&nbsp; &nbsp;
+                    &nbsp;بله </label>
+                    <input type="checkbox" id="rubika" name="rubika" value="1"/><label for="rubika">&nbsp; &nbsp; &nbsp;روبیکا </label>
+                    <input type="checkbox" id="eta" name="eta" value="1"/><label for="eta">&nbsp; &nbsp;
+                    &nbsp;ایتا </label>
+                </div>
+
+            <div class="text-center pt-1 mb-5 pb-1">
+                <input class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" id="but1" type="submit"
+                       value="ساخت گروه">
+                <h3><a class="text-muted" href="{% url 'panel:panel' %}"> ورود به پنل گروه جهادی</a></h3>
+            </div>
+
+
+            <script>
+                var carsAndModels = {}
+                carsAndModels['noone'] = ['انتخاب شهر', 'برای انتخاب شهر اول استان را انتخاب کنید'];
+                carsAndModels['khrazavi'] = ['منتطقه 1 مشهد', 'منظقه 2 مشهد', 'نیشابور'];
+                carsAndModels['tehran'] = ['شهر تهران', 'کرج', 'البرز', 'پردیس'];
+                carsAndModels['khshomali'] = ['بجنورد', 'فاروج', ' اش خانه'];
+
+                function ChangeCarList() {
+                    var cityList = document.getElementById("city");
+                    var modelList = document.getElementById("citymodel");
+                    var selCity = cityList.options[cityList.selectedIndex].value;
+                    while (modelList.options.length) {
+                        modelList.remove(0);
+                    }
+                    var citys = carsAndModels[selCity];
+                    if (citys) {
+                        var i;
+                        for (i = 0; i < citys.length; i++) {
+                            var city = new Option(citys[i], i);
+                            modelList.options.add(city);
+                        }
+                    }
+                }
+            </script>
+            <script src="{% static 'js/jquery.js' %}" ></script>
+            <script src="{% static 'js/kamadatepicker.min.js' %}" ></script>
+            <script>
+                kamaDatepicker('form2Example11',{closeAfterSelect:true,gotoToday:true,buttonsColor:"green",markHolidays:true,highlightSelectedDay:true});
+            </script>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+{#<script>#}
+{#    kamaDatepicker('date_created',{closeAfterSelect:true,gotoToday:true,buttonsColor:"green",markHolidays:true,highlightSelectedDay:true});#}
+{#</script>#}
+
+
+{#<form method="post" enctype="multipart/form-data" align="center">#}
+{#    {% csrf_token %}#}
+{#    {{ group_form.as_p }}#}
+{#    <center><input type="submit" value="send"></center>#}
+{##}
+{##}
+{##}
+{##}
+{#</form>#}

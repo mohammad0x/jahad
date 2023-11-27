@@ -1,0 +1,173 @@
+{% load static %}
+<center>
+    {% include 'messages.html' %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {#            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type='text/css' href="{% static 'home/css/css/kamadatepicker.min.css' %}">
+
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            clifford: '#da373d',
+                        }
+                    }
+                }
+            }
+        </script>
+        <style type="text/tailwindcss">
+            @layer utilities {
+                .content-auto {
+                    content-visibility: auto;
+                }
+            }
+
+            .sab {
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            .bgbg {
+                background-color: #dcd7d7
+            }
+        </style>
+
+
+    </head>
+
+    <body class="bgbg">
+    <div class="w-full max-w-3xl  items-center rounded-full justify-center">
+        <br><br>
+        <form method="POST" class="bg-white shadow-md rounded-xl px-2 pt-6 pb-14 mb-4">
+            {% csrf_token %}
+
+
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    عرصه فعالیت
+                </label>
+                <input name="arsefa" value="{{ arsefa }}" required minlength="2" maxlength="100"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="عرصه فعالیت">
+            </div>
+            <br>
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    تعداد شرکت کننده
+                </label>
+                <input name="tedadshe" value="{{ tedadshe }}" required minlength="1" maxlength="6"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="تعداد شرکت کننده">
+            </div>
+            <br>
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    تاریخ
+                </label>
+                <input name="date" required
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="date" type="month" placeholder="تاریخ">
+            </div>
+            <br>
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    شماره حکم
+                </label>
+                <input name="numberhokm" value="{{ numberhokm }}" required minlength="1" maxlength="50"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="شماره حکم">
+            </div>
+            <br>
+
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    نام و نام خانوادگی مسئول اردو
+                </label>
+                <input name="name_masol" value="{{ name_masol }}" required minlength="2" maxlength="35"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="نام و نام خانوادگی مسئول اردو ">
+            </div>
+            <br>
+
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    شماره تماس
+                </label>
+                <input name="phone_masol" value="{{ phone_masol }}" required minlength="11" maxlength="11"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="شماره تماس">
+            </div>
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    شرح فعالیت
+                </label>
+                <input name="message" value="{{ message }}" required minlength="2" maxlength="750"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="شرح فعالیت">
+            </div>
+            <br>
+
+
+            <div class="flex items-center text-center justify-center ">
+                <input value="ارسال"
+                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                       type="submit">
+
+            </div>
+            <br>
+            <div class=" text-blue-500 hover:text-blue-800">
+                <a href="{% url 'panel:panel' %}">بازگشت به پنل</a>
+            </div>
+
+        </form>
+
+
+        <br>
+    </div>
+</center>
+</body>
+</html>
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/kamadatepicker.min.js' %}"></script>
+<script>
+    kamaDatepicker('date', {
+        closeAfterSelect: true,
+        gotoToday: true,
+        buttonsColor: "green",
+        markHolidays: true,
+        highlightSelectedDay: true
+    });
+</script>
+<script>
+    kamaDatepicker('date_created', {
+        closeAfterSelect: true,
+        gotoToday: true,
+        buttonsColor: "green",
+        markHolidays: true,
+        highlightSelectedDay: true
+    });
+</script>

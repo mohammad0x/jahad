@@ -1,0 +1,70 @@
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport"#}
+{#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+{#    <title>Document</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<h1 class="bg-red-500 items-right h-full w-15">#}
+{#    <center>#}
+{#        خوش امدید به سایت برای ی<a href="{% url 'login:login' %}">ورود</a> کلیک کنید#}
+{#سلام#}
+{#    </center>#}
+{#</h1>#}
+{##}
+{#</body>#}
+{#</html>#}
+{##}
+
+
+<!DOCTYPE html>
+
+{% include 'messages.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+{#            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+            <script src="https://cdn.tailwindcss.com"></script>
+          <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+            <script>
+                tailwind.config = {
+                  theme: {
+                    extend: {
+                      colors: {
+                        clifford: '#da373d',
+                      }
+                    }
+                  }
+                }
+            </script>
+            <style type="text/tailwindcss">
+                @layer utilities {
+                    .content-auto {
+                        content-visibility: auto;
+                    }
+                }
+            </style>
+{#            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>#}
+{#            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>#}
+            <title>پنل کاربری</title>
+    </head>
+    <body>
+        <div class="w-screen h-20 bg-gray-400 flex">
+            <div class="w-1/2 h-full hover:bg-gray-500 duration-300 flex items-center justify-center border md:bg-red-700 lg:bg-green-400">
+                <a href="{% url 'login:login' %}">ورود</a></div>
+            <div class="w-1/2 h-full hover:bg-gray-500 duration-300 flex items-center justify-center border lg:bg-green-400">
+                <a href="{% url 'login:register' %}">ثبت نام</a></div>
+        </div>
+        <br>
+    <div class="text-center text-3xl">
+        جهت ورود با ثبت نام کلیک کنید
+    </div>
+    </body>
+</html>

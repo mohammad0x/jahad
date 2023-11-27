@@ -1,0 +1,281 @@
+{% load static %}
+
+<center>
+    {% include 'messages.html' %}
+</center>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type='text/css' href="{% static 'home/css/css/kamadatepicker.min.css' %}">
+
+    {#            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+
+        .sab {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .bgbg {
+            background-color: #dcd7d7
+        }
+    </style>
+
+</head>
+<body class="bgbg">
+<div class="text-xl text-center">
+
+    لطفا اطلاعات گروه جهادی را وارد یا در صورت نیاز ویرایش کنید
+
+</div>
+<center>
+    <br><br><br>
+    <div class="w-full max-w-3xl  items-center rounded-full justify-center">
+
+        <form method="POST" class="bg-white shadow-md rounded-xl px-2 pt-6 pb-14 mb-4">
+            {% csrf_token %}
+
+            <br>
+            <label for="website-admin" class="block text-center mb-2 text-sm font-medium text-gray-900 dark:text-white">نام
+                گروه جهادی</label>
+            <div class="flex" dir="rtl">
+  <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+         fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+    </svg>
+  </span>
+                <input type="text" name="group_name" value="{{ group_name }}" disabled id=" website-admin"
+                       class="  bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500           rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       placeholder="">
+            </div>
+
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    نام مسئول گروه جهادی
+                </label>
+                <input name="admin_name" required maxlength="20" minlength="2" value="{{ admin_name }}"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="نام مسئول گروه جهادی">
+            </div>
+            <br>
+
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    نام خانوادگی مسئول گروه جهادی
+                </label>
+                <input name="admin_lastname" value="{{ admin_last }}" required maxlength="20" minlength="2"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="نام خانوادگی مسئول گروه جهادی">
+            </div>
+
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    کد ملی مسئول گروه جهادی
+                </label>
+                <input name="nationality_code" value="{{ nati }}" required maxlength="10" minlength="10"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="نام خانوادگی مسئول گروه جهادی">
+            </div>
+            <br>
+
+            <div class="mb-4 form-group col-sm-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    تاریخ تولد مسئول گروه جهادی
+                </label>
+                <div>
+                    <input type="text" name="date" class=" shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline form-control" id="date" required>
+                </div>
+            </div>
+
+            <br>
+
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    شماره تماس مسئول گروه جهادی
+                </label>
+                <input name="phone" value="{{ phone }}" required maxlength="11" minlength="11"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="  شماره تماس مسئول گروه جهادی با صفر وارد شود">
+            </div>
+            <br>
+
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    آدرس دفتر گروه جهادی
+                </label>
+                <textarea name="adress" value="{{ adress }}" required minlength="5" maxlength="300"
+                          class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id="admin_name" placeholder="آدرس دفتر گروه جهادی">
+    </textarea>
+            </div>
+
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    شماره ثابت گروه گروه جهادی
+                </label>
+                <input name="number_sa" value="{{ number_sa }}" required minlength="8" maxlength="11"
+                       class="shadow appearance-none text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="admin_name" type="text" placeholder="شماره ثابت گروه گروه جهادی">
+            </div>
+
+            <br>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    تاریخ ساخت گروه گروه جهادی
+                </label>
+                <input name="date_created"  required
+                       class="shadow appearance-none form-control text-right border border-blue-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="date_created" type="text" placeholder="تاریخ ساخت گروه گروه جهادی">
+            </div>
+
+
+            <br>
+
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                حوضه فعالیت گروه را مشخض کنید
+            </label>
+            <div class=" items-center  text-center justify-center">
+                <br><br><br>
+                <div class="space-x-4">
+                    <input type="checkbox" name="all" id="id_all">
+                    <label for="id_all">همه حوضه ها</label>
+
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="hjtmayi" id="id_hjtmayi">
+                    <label for="id_hjtmayi">اجتماعی</label>
+
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="amizeshi" id="id_amizeshi">
+                    <label for="id_amizeshi">آموزشی</label>
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="farhangi" id="id_farhangi">
+
+                    <label for="id_kshavarzi">فرهنگی</label>
+
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="kshavarzi" id="id_kshavarzi">
+                    <label for="id_kshavarzi">کشاورزی</label>
+
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="omrani" id="id_omrani">
+                    <label for="id_omrani">عمرانی</label>
+                </div>
+            </div>
+
+
+            <br>
+
+
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                پیامرسان مورد استفاده گروه جهادی را مشخض کنید
+            </label>
+            <div class=" items-center text-center  justify-center">
+                <br><br><br>
+                <div class="space-x-4">
+                    <input type="checkbox" name="eta" id="id_eta">
+                    <label for="id_eta">ایتا</label>
+                </div>
+
+                <div class="space-x-4">
+                    <input type="checkbox" name="rubika" id="id_rubika">
+                    <label for="id_rubika">روبیکا</label>
+
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="bale" id="id_bale">
+                    <label for="id_bale">بله</label>
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="srosh" id="id_srosh">
+
+                    <label for="id_srosh">سروش</label>
+
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="tel" id="id_tel">
+                    <label for="id_tel">تلگرام</label>
+
+                </div>
+                <div class="space-x-4">
+                    <input type="checkbox" name="inesta" id="id_inesta">
+                    <label for="id_inesta">اینستاگرام</label>
+                </div>
+
+            </div>
+
+
+            <br>
+            <div class="flex items-center text-center justify-center ">
+                <input value="ارسال"
+                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                       type="submit">
+            </div>
+        </form>
+
+    </div>
+</center>
+
+
+</form>
+
+</body>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/kamadatepicker.min.js' %}"></script>
+<script>
+    kamaDatepicker('date', {
+        closeAfterSelect: true,
+        gotoToday: true,
+        buttonsColor: "green",
+        markHolidays: true,
+        highlightSelectedDay: true
+    });
+</script>
+<script>
+    kamaDatepicker('date_created', {
+        closeAfterSelect: true,
+        gotoToday: true,
+        buttonsColor: "green",
+        markHolidays: true,
+        highlightSelectedDay: true
+    });
+</script>

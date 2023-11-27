@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{% include 'messages.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+    {#            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>#}
+    {#            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>#}
+    <title>پنل کاربری</title>
+</head>
+<body>
+<div class="w-screen h-20 bg-gray-400 flex">
+    <div class="w-1/4 h-full hover:bg-gray-500 duration-300 flex items-center justify-center md:bg-red-700 lg:bg-green-400">
+        سلام
+    </div>
+    <div class="w-1/4 h-full hover:bg-gray-500 duration-300 flex items-center justify-center">سلام</div>
+    <div class="w-1/4 h-full hover:bg-gray-500 duration-300 flex items-center justify-center">سلام</div>
+    <div class="w-1/4 h-full hover:bg-gray-500 duration-300 flex items-center justify-center">سلام</div>
+</div>
+</body>
+</html>
